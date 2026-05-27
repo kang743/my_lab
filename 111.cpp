@@ -62,3 +62,43 @@ public:
         return ans;
     }
 };
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int>nums3(m+n);
+        int a=0,i=0,j=0;
+        while(i<m&&j<n)
+        {
+            if(nums1[i]<=nums2[j])
+            {
+                nums3[a]=nums1[i];
+                a++;i++;
+            }
+            else
+            {
+                nums3[a]=nums2[j];
+                a++;j++;
+            }
+        }
+        if(i!=m)
+        {
+            while(i<m)
+            {
+                nums3[a]=nums1[i];
+                a++;i++;
+            }
+        }
+        if(j!=n)
+        {
+             while(j<n)
+            {
+                nums3[a]=nums2[j];
+                a++;j++;
+            }
+        }
+        for(int i=0;i<m+n;i++)
+        {
+            nums1[i]=nums3[i];
+        }
+    }
+};
