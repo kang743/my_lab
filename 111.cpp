@@ -102,3 +102,25 @@ public:
         }
     }
 };
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int count=1,a=nums[0];
+        for(int i=1;i<nums.size();i++)
+        {
+            if(count==0)
+            {
+                a=nums[i];
+            }
+            if(nums[i]!=a)
+            {
+                count--;
+            }
+            else
+            {
+                count++;
+            }
+        }
+        return a;
+    }
+};
